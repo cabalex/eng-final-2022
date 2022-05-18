@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+    <title>ENG2022</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.4/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@latest/build/three.module.js",
+            "GLTFLoader": "https://unpkg.com/three@latest/examples/jsm/loaders/GLTFLoader.js"
+          }
+        }
+    </script>
+    <noscript>You need JavaScript enabled to run this app.</noscript>
+    <script src="./scripts/index.js" type="module"></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="title">
+        <h1>Holden's Museum</h1>
+        <h2 style="color: #777">[ click/tap objects to read more about them ]</h2>
+    </div>
+    <div class="description">
+        <header>
+            <div class="closeBtn" id="closeDescription">X</div>
+            <h1>Object</h1>
+        </header>
+        <p>
+            TEXT.
+        </p>
+    </div>
+    <div class="screenWidthWarning">
+        <h1>Screen width too small</h1>
+        <p>To see every object in the Museum, please rotate your device or use a tablet or desktop computer.</p>
+    </div>
+
+    <div id="introModal">
+        <h1>Holden's Museum</h1>
+        <p>A <i>Catcher in the Rye</i> interactive museum</p>
+        <div id="loadingMuseumBtn">
+            LOADING
+        </div>
+        <div id="enterMuseumBtn">
+            ENTER
+        </div>
+        <p id="footer"><a href="https://cabalex.github.io">cabalex.github.io</a> - Alex Sherbrooke 2022</p>
+    </div>
+</body>
+</html>

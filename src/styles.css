@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;800&display=swap');
+html, body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+}
+h1, h2, h3 {
+    font-weight: 800;
+}
+a {
+    text-decoration: none;
+}
+.cursorHover {
+    cursor: pointer;
+}
+#title {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    z-index: 1;
+}
+#title * {
+    margin: 5px;
+    text-decoration: none;
+}
+#title a {
+    color: #777;
+}
+.description {
+    position: fixed;
+    top: 10%;
+    right: 0;
+    width: min(50vw, 500px);
+    height: calc(80% - 20px);
+    border-radius: 10px 0 0 10px;
+    padding: 10px;
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    text-align: center;
+    line-height: 100%;
+    vertical-align: middle;
+    overflow: auto;
+
+    display: none;
+    animation: slideOutToRight 0.3s ease-in-out;
+}
+.description.open {
+    display: block;
+    animation: slideInFromRight 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+@keyframes slideInFromRight {
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: 0
+    }
+}
+@keyframes slideOutToRight {
+    0% {
+        right: 0
+    }
+    100% {
+        right: -100%;
+    }
+}
+.description p {
+    font-size: 20px;
+    text-align: left;
+    text-indent: 2em;
+    line-height: 200%;
+}
+.description header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0 10px;
+    border-radius: 5px;
+    box-shadow:0 0 5px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    background-color: #ccc;
+}
+.closeBtn {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    background-color: #ED4245;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+}
+.closeBtn::after {
+    content: "CLOSE";
+    background-color: #ED4245;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 10px 5px;
+    border-radius: 5px;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+    font-size: 12px;
+    transition: top 0.2s ease-in-out, opacity 0.2s ease-in-out, font-size 0.2s ease-in-out;
+}
+.closeBtn:hover {
+    transform: scale(1.1);
+}
+.closeBtn:hover::after {
+    opacity: 1;
+    font-size: 16px;
+}
+#fullscreenBtn {
+    cursor: pointer;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+#introModal, .screenWidthWarning {
+    cursor: default;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 40px);
+    height: calc(100vh - 40px);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 1.5rem;
+    z-index: 99;
+    text-align: center;
+    padding: 20px;
+}
+#introModal {
+    background-color: #777;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    margin: auto;
+    padding-bottom: 30px;
+    width: 100%;
+}
+#enterMuseumBtn, #loadingMuseumBtn {
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    background-color: #00aa00;
+    width: 200px;
+    margin: auto;
+    font-weight: bold;
+    padding: 15px 10px;
+    border-radius: 5px;
+    transform: 0;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+#loadingMuseumBtn {
+    background-color: #222;
+    cursor: not-allowed;
+}
+#loadingMuseumBtn:after {
+    content: "Hasn't loaded after a while? Refresh the page.";
+    position: absolute;
+    top: 120%;
+    font-weight: normal;
+    font-size: 0.9rem;
+    left: 0;
+    width: 100%;
+}
+#enterMuseumBtn {
+    display: none;
+}
+#enterMuseumBtn:hover {
+    background-color: #00cc00;
+    transform: scale(1.1);
+}
+
+.screenWidthWarning {
+    display: none;
+    z-index: 999;
+}
+
+@media screen and (orientation:portrait) {
+    .screenWidthWarning {
+        display: block;
+    }
+}
+canvas {
+    height: 100vh !important;
+}
