@@ -64,6 +64,7 @@ export default class BaseObject {
     showObjectDetails() {
         $('.description h1').text(this.name);
         $('.description > p').remove();
+        $('.description').animate({scrollTop: 0}, 100);
         $('.description').append('<p>' + this.description.split('\n').join('</p><p>') + '</p>').addClass('open');
 
 
